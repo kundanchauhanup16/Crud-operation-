@@ -12,8 +12,10 @@ class UserAdapter(
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     inner class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val name = view.findViewById<TextView>(R.id.nameTxt)
-        val email = view.findViewById<TextView>(R.id.emailTxt)
+        val name = view.findViewById<TextView>(R.id.nameTV)
+        val phone = view.findViewById<TextView>(R.id.phoneTV)
+        val mail = view.findViewById<TextView>(R.id.mailTV)
+        val gender = view.findViewById<TextView>(R.id.genderTV)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -25,7 +27,9 @@ class UserAdapter(
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = users[position]
         holder.name.text = user.name
-        holder.email.text = user.password
+        holder.phone.text = user.password
+        holder.mail.text = user.mail
+        holder.phone.text = user.gender
 
         holder.itemView.setOnClickListener {
             clickListener(user)
@@ -34,8 +38,8 @@ class UserAdapter(
 
     override fun getItemCount() = users.size
 
-   /* fun updateData(newUsers: List<UserEntity>) {
-        users = newUsers
-        notifyDataSetChanged() // <-- refresh RecyclerView
-    }*/
+    /* fun updateData(newUsers: List<UserEntity>) {
+         users = newUsers
+         notifyDataSetChanged() // <-- refresh RecyclerView
+     }*/
 }

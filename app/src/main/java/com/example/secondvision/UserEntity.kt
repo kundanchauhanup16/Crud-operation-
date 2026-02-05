@@ -9,5 +9,7 @@ data class UserEntity(
     val id: Int = 0,
     var name: String,
     var phone: String,
-    var password: String
+    var password: String,
+    var mail: String,
+    var gender: String,
 )
